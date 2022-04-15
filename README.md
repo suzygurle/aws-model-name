@@ -3,6 +3,9 @@ aws_image_cat
 
 A short description of the project.
 
+[![download-data](https://github.com/suzygurle/aws-model-name/actions/workflows/download-data.yml/badge.svg)](https://github.com/suzygurle/aws-model-name/actions/workflows/download-data.yml)
+
+
 Project Organization
 ------------
 
