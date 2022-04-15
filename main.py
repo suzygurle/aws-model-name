@@ -6,14 +6,14 @@ import data.load_data as loader
 import models.categorization_model as model_loader
 
 remote_url = 'https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs_3367a.zip'
-file_dir = '/content/aws_image_cat/data/raw'
-file_name = '/content/aws_image_cat/data/raw/kagglecatsanddogs_3367a.zip'
+file_dir = '/data/raw'
+file_name = '/data/raw/kagglecatsanddogs_3367a.zip'
 
 #loader.get_data(remote_url, file_dir, file_name)
 
 num_skipped = 0
 for folder_name in ("Cat", "Dog"):
-    folder_path = os.path.join("/content/aws_image_cat/data/raw/PetImages", folder_name)
+    folder_path = os.path.join("/data/raw/PetImages", folder_name)
     for fname in os.listdir(folder_path):
         fpath = os.path.join(folder_path, fname)
         try:
@@ -33,7 +33,7 @@ image_size = (180, 180)
 batch_size = 32
 
 train_ds = tf.keras.preprocessing.image_dataset_from_directory(
-    "/content/aws_image_cat/data/raw/PetImages",
+    "/data/raw/PetImages",
     validation_split=0.2,
     subset="training",
     seed=1337, #important to set seed
@@ -41,7 +41,7 @@ train_ds = tf.keras.preprocessing.image_dataset_from_directory(
     batch_size=batch_size,
 )
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
-    "/content/aws_image_cat/data/raw/PetImages",
+    "/data/raw/PetImages",
     validation_split=0.2,
     subset="validation",
     seed=1337,
