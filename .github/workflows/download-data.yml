@@ -1,0 +1,18 @@
+name: download-data
+
+on: 
+  workflow_dispatch: 
+    inputs:
+      s3_url: 
+        description: source s3 bucket
+        required: true 
+        default: https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs_3367a.zip
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Execute download from S3 
+      run: |
+        wget ${{ github.event.inputs.s3_url }}        
