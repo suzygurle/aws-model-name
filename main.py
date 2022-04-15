@@ -4,6 +4,7 @@ from tensorflow.keras import layers
 import os
 import data.load_data as loader
 import models.categorization_model as model_loader
+import boto3
 
 remote_url = 'https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs_3367a.zip'
 file_dir = '/data/raw'
@@ -72,5 +73,6 @@ model.fit(
     train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds,
 )
 
+result = model.save()
 
 
