@@ -7,10 +7,10 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: shallwefootball/s3-upload-action@master
+      - uses: actions/checkout@main
+      - uses: shallwefootball/s3-upload-action@main
         with:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'aws-model-name/src/models/categorization_model.py'
+          source_dir: 'src/models/categorization_model.py'
