@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install python3 python3-pip -y 
+RUN apt-get update && apt-get install python3 python3-pip git -y 
 
 COPY . /Docker
 
@@ -10,4 +10,4 @@ RUN pip3 install -r requirements.txt
 
 RUN pip3 install tensorflow==2.8 --no-cache-dir
 
-CMD ['python3', 'main.py']
+CMD ["python3", "main.py"]
