@@ -10,7 +10,7 @@ remote_url = 'https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs
 file_dir = '/data/raw'
 file_name = '/data/raw/kagglecatsanddogs_3367a.zip'
 
-#loader.get_data(remote_url, file_dir, file_name)
+loader.get_data(remote_url, file_dir, file_name)
 
 num_skipped = 0
 for folder_name in ("Cat", "Dog"):
