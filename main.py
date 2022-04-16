@@ -2,8 +2,8 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 import os
-import data.load_data as loader
-import models.categorization_model as model_loader
+import src.data.load_data as loader
+import src.models.categorization_model as model_loader
 import boto3
 
 remote_url = 'https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs_3367a.zip'
