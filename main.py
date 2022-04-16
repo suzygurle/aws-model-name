@@ -5,10 +5,13 @@ import os
 import src.data.load_data as loader
 import src.models.categorization_model as model_loader
 import boto3
+import mlflow
+
 
 remote_url = 'https://aws-model-lab.s3.eu-west-3.amazonaws.com/kagglecatsanddogs_3367a.zip'
 file_dir = '/data/raw'
 file_name = '/data/raw/kagglecatsanddogs_3367a.zip'
+TRACKING_URI = ''
 
 loader.get_data(remote_url, file_dir, file_name)
 
@@ -72,6 +75,14 @@ model.compile(
 model.fit(
     train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds,
 )
+
+## mlflow
+mlflow.tracking.set_tracking_uri(TRACKING_URI)
+
+with mlflow.start_run(run_name = run_name) as run: 
+    mlflow.log_metric(metric_name, value)
+
+
 
 result = model.save()
 
