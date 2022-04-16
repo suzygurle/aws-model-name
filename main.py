@@ -77,11 +77,24 @@ model.fit(
 )
 
 ## mlflow
+run_name = 'Default'
+metric_name = 'accuracy'
 mlflow.tracking.set_tracking_uri(TRACKING_URI)
 
 with mlflow.start_run(run_name = run_name) as run: 
     mlflow.log_metric(metric_name, value)
 
+## SNS 
+
+client = boto3.client('sns')
+
+response = client.publish(
+    TopicArn='arn:aws:sns:eu-west-3:124716560638:AlertExample',
+    Message='completed the task',
+    Subject='AWS Notification',
+)
+
+print(response)
 
 
 result = model.save()
