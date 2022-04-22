@@ -1,0 +1,5 @@
+Referenced Github Repos: 
+
+https://github.com/SteBaum/flask_test.git
+https://github.com/mralbertk/dsti-aws-lambda-container.git
+https://github.com/mralbertk/dsti-inference-lambda.git
